@@ -47,9 +47,6 @@ form button {
   padding-bottom: 2rem;
 }
 
-input:focus {
-  border: 1px solid #562b81;
-}
 .textbox-notes {
   height: 6rem;
   resize: none;
