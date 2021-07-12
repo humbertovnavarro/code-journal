@@ -47,11 +47,12 @@ form button {
   padding-bottom: 2rem;
 }
 
-.textbox:focus {
-  border: #562b81;
+input:focus {
+  border: 1px solid #562b81;
 }
 .textbox-notes {
   height: 6rem;
+  resize: none;
 }
 
 .header {
