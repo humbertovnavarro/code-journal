@@ -1,9 +1,15 @@
 /* global data */
 /* exported data */
-var $image = document.querySelector('.form-image');
+var $formImage = document.querySelector('.form-image');
 var $photoUrl = document.querySelector('#entry-url');
 var $form = document.querySelector('form');
+var $entryList = document.querySelector('.entry-list');
 
+window.addEventListener('DOMContentLoaded', function(event){
+  for(var i = 0; i < data.entries.length; i++) {
+    $entryList.appendChild(createEntry(data.entries[i]));
+  }
+});
 
 function checkURL(url) {
   if(!url.startsWith('https://')){
@@ -14,7 +20,7 @@ function checkURL(url) {
 
 function handleURLChange(event) {
   if(checkURL($photoUrl.value)){
-    $image.src = $photoUrl.value;
+    $formImage.src = $photoUrl.value;
   }
 }
 
@@ -30,9 +36,10 @@ function handleFormSubmit(event) {
   $form.title.value = '';
   $form.url.value = '';
   $form.notes.value = '';
-  $image.src = 'images/placeholder-image-square.jpg';
+  $formImage.src = 'images/placeholder-image-square.jpg';
   data.nextEntryId++;
 }
+
 function createEntry(entry) {
   var $entry = document.createElement('li');
   $entry.className = "row";
@@ -48,7 +55,8 @@ function createEntry(entry) {
   $heading.textContent = entry.title;
   var $paragraph = document.createElement('p'); 
   $paragraph.textContent = entry.notes;
-  $imageColumn.appendChild($image);
+  $entryImageContainer.appendChild($entryImage); 
+  $imageColumn.appendChild($entryImageContainer);
   $textColumn.appendChild($heading);
   $textColumn.appendChild($paragraph);
   $entry.appendChild($imageColumn);
