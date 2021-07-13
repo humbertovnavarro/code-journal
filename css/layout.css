@@ -16,17 +16,6 @@
   flex-wrap: wrap;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-.justify-end {
-  justify-content: flex-end;
-}
-.align-center {
-  align-items: center;
-}
-
 .column-full,
 .column-half {
   width: 100%;
