@@ -4,10 +4,16 @@ body {
   font-weight: 600;
 }
 
+a {
+  font-size: 0.6rem;
+  padding-left: 1rem;
+}
+
 ul{
   margin: 0px;
   padding: 0px;
 }
+
 li h1 {
   margin: 0px;
   padding: 0px;
@@ -37,6 +43,9 @@ button {
   border-radius: 5px;
   margin-top: 1rem;
   box-shadow: 2px 2px 2px #240047;
+}
+button:hover {
+  background-color: #5e3983;
 }
 
 button:active {
@@ -80,10 +89,9 @@ textarea {
 
 
 .image-container {
-  overflow: hidden;
   border-radius: 6px;
   width: 100%;
-  height: 25rem;
+  height: 20rem;
 }
 
 .image-container img {
@@ -97,7 +105,6 @@ textarea {
 .header-container h1{
   padding: 0;
   margin: 0;
-  margin-left: 1.5rem;
 }
 
 header {
@@ -150,6 +157,9 @@ body {
 .align-center {
   align-items: center;
 }
+.align-baseline {
+  align-items: baseline;
+}
 
 .text-right {
   text-align: right;
@@ -163,5 +173,8 @@ body {
     padding: 0;
     margin: 0;
     margin-left: 0;
+  }
+  a {
+    padding-left: 20px;
   }
 }

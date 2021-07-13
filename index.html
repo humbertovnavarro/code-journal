@@ -19,12 +19,13 @@
 </head>
 <body>
   <header>
-    <div class="container header-container">
+    <div class="container header-container row align-baseline">
       <h1>Code Journal</h1>
+      <a class="entries-tab"><h1>Entries</h1></a>
     </div>
   </header>
   <main>
-    <div data-view="entry-form" class="hidden">
+    <div data-view="entry-form" class="entry-form hidden">
       <div class="container">
         <div class="column-full">
           <form>
@@ -61,7 +62,7 @@
         </div>
       </div>
     </div>
-    <div data-view="entries" class="">
+    <div data-view="entries" class="entries hidden">
       <div class="container header-container">
         <div class="row">
           <div class="column-half">
@@ -70,7 +71,7 @@
           <div class="column-half">
             <div class="row justify-end">
               <div class="col-half">
-                <button>NEW</button>
+                <button class="new-entry-button">NEW</button>
               </div>
             </div>
           </div>
