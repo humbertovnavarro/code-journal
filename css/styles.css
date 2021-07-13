@@ -4,6 +4,15 @@ body {
   font-weight: 600;
 }
 
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+li h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
 .textbox {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -15,7 +24,7 @@ form {
   font-family: 'Proza Libre', sans-serif;
 }
 
-form button {
+button {
   font-family: 'Proza Libre', sans-serif;
   background-color: #562b81;
   transition: background-color 0.1s;
@@ -30,10 +39,16 @@ form button {
   box-shadow: 2px 2px 2px #240047;
 }
 
-form button:active {
+button:active {
   background-color: rgb(138, 38, 138);
   box-shadow: 1px 1px 1px #240047;
   transform: translateY(1px);
+}
+
+p {
+  font-weight: normal;
+  line-height: 1.5;
+  font-size: large;
 }
 
 input {
@@ -64,14 +79,14 @@ textarea {
 }
 
 
-.form-image-container {
+.image-container {
   overflow: hidden;
   border-radius: 6px;
   width: 100%;
   height: 25rem;
 }
 
-.form-image-container img {
+.image-container img {
   object-fit: cover;
   width: 100%;
   height: 100%;

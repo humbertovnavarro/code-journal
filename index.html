@@ -24,7 +24,7 @@
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
+    <div data-view="entry-form" class="hidden">
       <div class="container">
         <div class="column-full">
           <form>
@@ -35,8 +35,8 @@
             </div>
             <div class="row">
               <div class="column-half">
-                <div class="form-image-container">
-                  <img src="images/placeholder-image-square.jpg" alt="Entry Image" class="form-image">
+                <div class="image-container">
+                  <img src="images/placeholder-image-square.jpg" alt="Entry Image">
                 </div>
               </div>
               <div class="column-half">
@@ -61,10 +61,53 @@
         </div>
       </div>
     </div>
+    <div class="container header-container">
+      <div class="row">
+        <div class="column-half">
+          <h1>Entries</h1>
+        </div>
+        <div class="column-half">
+          <div class="row justify-end">
+            <div class="col-half">
+              <button>NEW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div data-view="entries">
-      <ul>
-        
-      </ul>
+      <div class="container">
+        <div class="row">
+          <div class="col-full">
+            <ul>
+              <li class="row">
+                <div class="column-half">
+                  <div class="image-container">
+                    <img src="images/placeholder-image-square.jpg">
+                  </div>
+                </div>                
+                <div class="column-half">
+                  <h1>Ada Lovelace</h1>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, asperiores quo non voluptatem et iste, voluptates quae unde consequatur eos id, aspernatur nihil suscipit molestiae commodi. Adipisci quia optio sapiente?</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque facilis aspernatur quis nihil, fugiat libero inventore hic enim! Esse eligendi aspernatur voluptas ducimus labore, sunt quibusdam cumque odit optio.</p>
+                </div>
+              </li>
+              <li class="row">
+                <div class="column-half">
+                  <div class="image-container">
+                    <img src="images/placeholder-image-square.jpg">
+                  </div>
+                </div>                
+                <div class="column-half">
+                  <h1>Ada Lovelace</h1>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, asperiores quo non voluptatem et iste, voluptates quae unde consequatur eos id, aspernatur nihil suscipit molestiae commodi. Adipisci quia optio sapiente?</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eaque facilis aspernatur quis nihil, fugiat libero inventore hic enim! Esse eligendi aspernatur voluptas ducimus labore, sunt quibusdam cumque odit optio.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
