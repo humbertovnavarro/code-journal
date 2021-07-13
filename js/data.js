@@ -3,7 +3,7 @@ var data = {
   view: 'entry-form',
   entries: [],
   editing: null,
-  nextEntryId: 0
+  nextEntryId: 1
 };
 
 if(localStorage.getItem('entries') !== null) {

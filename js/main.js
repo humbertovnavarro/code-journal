@@ -19,7 +19,6 @@ function handleURLChange(event) {
 }
 
 function handleFormSubmit(event) {
-  data.nextEntryId++;
   event.preventDefault();
   var entry = {
     title: $form.title.value,
@@ -32,6 +31,7 @@ function handleFormSubmit(event) {
   $form.url.value = '';
   $form.notes.value = '';
   $image.src = 'images/placeholder-image-square.jpg';
+  data.nextEntryId++;
 }
 
 $photoUrl.addEventListener('input',handleURLChange);
