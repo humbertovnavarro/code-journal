@@ -1,11 +1,11 @@
 /* global data */
 /* exported data */
-debugger;
 var entries = [];
 var nextEntryId = 0;
 var $image = document.querySelector('.form-image');
 var $photoUrl = document.querySelector('#entry-url');
 var $form = document.querySelector('form');
+
 if(localStorage.getItem('entries') !== null) {
  entries = JSON.parse(localStorage.getItem('entries'));
  var biggest = entries[0].entryId;
@@ -29,6 +29,7 @@ function handleURLChange(event) {
     $image.src = $photoUrl.value;
   }
 }
+
 function handleFormSubmit(event) {
   nextEntryId++;
   event.preventDefault();
@@ -46,5 +47,6 @@ function handleFormSubmit(event) {
   var entriesString = JSON.stringify(entries);
   localStorage.setItem('entries',entriesString);
 }
+
 $photoUrl.addEventListener('input',handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);

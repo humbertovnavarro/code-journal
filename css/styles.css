@@ -58,9 +58,20 @@ textarea {
   padding-bottom: 2rem;
 }
 
+.header-container h1{
+  padding: 0;
+  margin: 0;
+  margin-left: 1.5rem;
+}
+
 @media screen and (max-width: 768px) {
   .form-image-container {
     height: 20rem;
+  }
+  .header-container h1{
+    padding: 0;
+    margin: 0;
+    margin-left: 0;
   }
 }
 
@@ -73,6 +84,7 @@ header {
   background-color: #562b81;
   height: 5rem;
 }
+
 .header-container {
   margin-right: auto;
   margin-left: auto;
@@ -80,7 +92,6 @@ header {
 }
 
 header h1 {
-  padding-left: 3rem;
   font-weight: normal;
   font-size: 2em;
   font-family: 'Proza Libre', sans-serif;
@@ -103,6 +114,11 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -117,9 +133,4 @@ body {
 
 .text-right {
   text-align: right;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
 }
