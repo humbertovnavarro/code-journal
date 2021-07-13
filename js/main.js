@@ -1,9 +1,10 @@
 /* global data */
 /* exported data */
+debugger;
 var entries = [];
 var nextEntryId = 0;
 var $image = document.querySelector('.form-image');
-var $photoUrl = document.querySelector('.photo-url');
+var $photoUrl = document.querySelector('#entry-url');
 var $form = document.querySelector('form');
 if(localStorage.getItem('entries') !== null) {
  entries = JSON.parse(localStorage.getItem('entries'));
