@@ -33,6 +33,28 @@ function handleFormSubmit(event) {
   $image.src = 'images/placeholder-image-square.jpg';
   data.nextEntryId++;
 }
+function createEntry(entry) {
+  var $entry = document.createElement('li');
+  $entry.className = "row";
+  var $imageColumn = document.createElement('div');
+  $imageColumn.className = 'column-half';
+  var $textColumn = document.createElement('div');
+  $textColumn.className = "column-half";
+  var $entryImage = document.createElement('img');
+  $entryImage.src = entry.url;
+  var $entryImageContainer = document.createElement('div');
+  $entryImageContainer.className = "image-container";
+  var $heading = document.createElement('h1');
+  $heading.textContent = entry.title;
+  var $paragraph = document.createElement('p'); 
+  $paragraph.textContent = entry.notes;
+  $imageColumn.appendChild($image);
+  $textColumn.appendChild($heading);
+  $textColumn.appendChild($paragraph);
+  $entry.appendChild($imageColumn);
+  $entry.appendChild($textColumn);
+  return $entry;
+}
 
 $photoUrl.addEventListener('input',handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
