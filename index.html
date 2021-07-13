@@ -10,14 +10,57 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <div class="container header-container">
+      <h1>Code Journal</h1>
+    </div>
   </header>
   <main>
+    <div data-view="entry-form">
+      <div class="container">
+        <div class="column-full">
+          <form>
+            <div class="row">
+              <div class="column-full">
+                <h1>New Entry</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-half">
+                <div class="form-image-container">
+                  <img src="images/placeholder-image-square.jpg" alt="Entry Image" class="form-image">
+                </div>
+              </div>
+              <div class="column-half">
+                <div><label for="entry-title">Title</label></div>
+                <input name="title" id="entry-title">
+                <div><label for="photo-url">Photo URL</label></div>
+                <input name="url" id="entry-url">
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-full">
+                <div><label for="entry-notes">Notes</label></div>
+                <textarea name="notes" id="entry-notes" cols="30" rows="10"></textarea>
+              </div>
+            </div>
+            <div class="row justify-end">
+              <div class="column-half text-right">
+                <button>SAVE</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

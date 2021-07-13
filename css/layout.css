@@ -4,8 +4,12 @@
 
 .container {
   max-width: 575px;
-  margin: 0 auto;
+  margin: 0 0;
   padding: 0 1.5rem;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .row {
@@ -17,7 +21,6 @@
 .column-half {
   width: 100%;
 }
-
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
