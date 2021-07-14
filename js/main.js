@@ -120,13 +120,11 @@ function showView(view) {
       $entryForm.className = 'entry-form hidden';
       $entries.className = 'entries';
       return 'entries';
-      break;
     case 'entry-form':
       data.view = 'entry-form';
       $entryForm.className = 'entry-form';
       $entries.className = 'entries hidden';
       return 'entry-form';
-      break;
   }
 }
 
