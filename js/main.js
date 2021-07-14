@@ -20,6 +20,9 @@ function handleURLChange(event) {
   if (checkURL($photoUrl.value)) {
     $formImage.src = $photoUrl.value;
   }
+  else {
+    $formImage.src = 'images/placeholder-image-square.jpg';
+  }
 }
 
 function handleEntryClick(event) {
