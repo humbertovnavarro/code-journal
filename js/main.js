@@ -51,12 +51,19 @@ function createEntry(entry) {
   var $entryImageContainer = document.createElement('div');
   $entryImageContainer.className = 'image-container';
   var $heading = document.createElement('h1');
+  var $flexDiv = document.createElement('div');
+  var $editIcon = document.createElement('img');
+  $editIcon.className = 'icon';
+  $editIcon.src = 'https://img.icons8.com/material-outlined/24/000000/edit--v1.png';
+  $flexDiv.className = "row space-between";
   $heading.textContent = entry.title;
   var $paragraph = document.createElement('p'); 
   $paragraph.textContent = entry.notes;
   $entryImageContainer.appendChild($entryImage); 
   $imageColumn.appendChild($entryImageContainer);
-  $textColumn.appendChild($heading);
+  $flexDiv.appendChild($heading);
+  $flexDiv.appendChild($editIcon);
+  $textColumn.appendChild($flexDiv);
   $textColumn.appendChild($paragraph);
   $entry.appendChild($imageColumn);
   $entry.appendChild($textColumn);
@@ -117,6 +124,8 @@ $entriesTab.addEventListener('click',function(event) {
 $newEntryButton.addEventListener('click', function() {
   showView('entry-form');
 })
+
+$entries.addEventListener('click', handleEntryClick );
 
 window.addEventListener('DOMContentLoaded', function(event){
   if(data.entries === undefined){
