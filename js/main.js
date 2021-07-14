@@ -47,13 +47,14 @@ function handleFormSubmit(event) {
   var entry = {
     title: $form.title.value,
     url: $formImage.src,
-    notes: $form.notes.value,
-    entryID: data.nextEntryId
+    notes: $form.notes.value
   };
   if(data.editing != null) {
+    entry.entryID = data.entries[editing].entryID;
     data.entries[data.editing] = entry;
     data.editing = null;
   } else {
+    entry.entryID = data.nextEntryId;
     data.nextEntryId++;
     data.entries.push(entry);
   }
