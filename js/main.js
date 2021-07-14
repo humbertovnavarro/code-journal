@@ -29,13 +29,13 @@ function handleEntryClick(event) {
   var myEntryID = parseInt(event.target.getAttribute('data-entry-id'));
   for(var i = 0; i < data.entries.length; i++) {
     if(data.entries[i].entryID === myEntryID){
-      data.editing = data.entries[i];
+      data.editing = i;
     }
   }
-  $form.title.value = data.editing.title;
-  $form.notes.value = data.editing.notes;
-  $form.url.value = data.editing.url; 
-  $formImage.src = data.editing.url;
+  $form.title.value = data.entries[data.editing].title;
+  $form.notes.value = data.entries[data.editing].notes;
+  $form.url.value = data.entries[data.editing].url;
+  $formImage.src = data.entries[data.editing].url;
   showView('entry-form');
 }
 
@@ -47,12 +47,17 @@ function handleFormSubmit(event) {
     notes: $form.notes.value,
     entryID: data.nextEntryId
   };
-  data.entries.push(entry);
+  if(data.editing != null) {
+    data.entries[data.editing] = entry;
+    data.editing = null;
+  } else {
+    data.nextEntryId++;
+    data.entries.push(entry);
+  }
   $form.title.value = '';
   $form.url.value = '';
   $form.notes.value = '';
   $formImage.src = 'images/placeholder-image-square.jpg';
-  data.nextEntryId++;
   showView('entries');
 }
 
