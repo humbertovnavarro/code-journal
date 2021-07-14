@@ -137,7 +137,7 @@ function wipe() {
     editing: null,
     nextEntryId: 1
   };
-  dataJSON = JSON.stringify(data);
+  var dataJSON = JSON.stringify(data);
   localStorage.setItem('entries', dataJSON);
 }
 
@@ -158,5 +158,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
   if (data.entries === undefined) {
     wipe();
   }
+  updateEntryView();
   showView(data.view);
 });
