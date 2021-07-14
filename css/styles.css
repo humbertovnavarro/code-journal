@@ -200,4 +200,8 @@ form h1 {
   a {
     padding-left: 20px;
   }
+
+  .mobile-margin {
+    margin-top: 2rem;
+  }
 }
