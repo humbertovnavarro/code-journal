@@ -62,6 +62,7 @@ function handleFormSubmit(event) {
   $form.url.value = '';
   $form.notes.value = '';
   $formImage.src = 'images/placeholder-image-square.jpg';
+  updateEntryView();
   showView('entries');
 }
 
@@ -115,7 +116,6 @@ function updateEntryView() {
 function showView(view) {
   switch (view) {
     case 'entries':
-      updateEntryView();
       data.view = 'entries';
       $entryForm.className = 'entry-form hidden';
       $entries.className = 'entries';
