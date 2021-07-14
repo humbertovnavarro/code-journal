@@ -8,7 +8,7 @@ var $entriesTab = document.querySelector('.entries-tab');
 var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
-
+var $deleteTarget = document.querySelector('.delete-target');
 function checkURL(url) {
   if (!url.startsWith('https://')) {
     return false;
@@ -50,7 +50,7 @@ function handleFormSubmit(event) {
     notes: $form.notes.value
   };
   if(data.editing != null) {
-    entry.entryID = data.entries[editing].entryID;
+    entry.entryID = data.entries[data.editing].entryID;
     data.entries[data.editing] = entry;
     data.editing = null;
   } else {
@@ -124,6 +124,12 @@ function showView(view) {
       data.view = 'entry-form';
       $entryForm.className = 'entry-form';
       $entries.className = 'entries hidden';
+      if(data.editing === null) {
+        $deleteTarget.className = 'delete-target hidden';
+      }
+      else {
+        $deleteTarget.className = 'delete-target';
+      }
       return 'entry-form';
   }
 }
@@ -143,10 +149,12 @@ $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
 
 $entriesTab.addEventListener('click', function (event) {
+  //data.editing = null;
   showView('entries');
 });
 
 $newEntryButton.addEventListener('click', function () {
+  //data.editing = null;
   showView('entry-form');
 })
 
