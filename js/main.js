@@ -9,16 +9,6 @@ var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 
-function updateEntryView() {
-  if(data.entries.length <= 0) {  
-    return;
-  }
-  $entryList.innerHTML = '';
-  for(var i = 0; i < data.entries.length; i++) {
-    $entryList.appendChild(createEntry(data.entries[i]));
-  }
-}
-
 function checkURL(url) {
   if(!url.startsWith('https://')){
     return false;
@@ -46,7 +36,7 @@ function handleFormSubmit(event) {
   $form.notes.value = '';
   $formImage.src = 'images/placeholder-image-square.jpg';
   data.nextEntryId++;
-  showEntries();
+  showView('entries');
 }
 
 function createEntry(entry) {
@@ -73,15 +63,37 @@ function createEntry(entry) {
   return $entry;
 }
 
-function showEntries() {
-  updateEntryView();
-  $entryForm.className = 'entry-form hidden';
-  $entries.className = 'entries';
+function updateEntryView() {
+  $entryList.innerHTML = '';
+  for(var i = 0; i < data.entries.length; i++) {
+    $entryList.appendChild(createEntry(data.entries[i]));
+  }
+  if(data.entries <= 0) {
+    var $error = document.createElement('div');
+    var $errorMessage = document.createElement('p');
+    $errorMessage.className = "text-center"
+    $errorMessage.textContent = 'No entries have been recorded.';
+    $error.appendChild($errorMessage);
+    $entryList.appendChild($error);
+  }
 }
 
-function showForm() {
-  $entryForm.className = 'entry-form';
-  $entries.className = 'entries hidden';
+function showView(view) {
+  switch(view) {
+    case 'entries':
+      updateEntryView();
+      data.view = 'entries';
+      $entryForm.className = 'entry-form hidden';
+      $entries.className = 'entries';
+      return 'entries';
+    break;
+    case 'entry-form':
+      data.view = 'entry-form';
+      $entryForm.className = 'entry-form';
+      $entries.className = 'entries hidden';
+      return 'entry-form';
+    break;
+  }
 }
 
 function wipe() {
@@ -93,30 +105,22 @@ function wipe() {
   };
   dataJSON = JSON.stringify(data);
   localStorage.setItem('entries',dataJSON);
-  showEntries();
 }
 
 $photoUrl.addEventListener('input',handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
 
 $entriesTab.addEventListener('click',function(event) {
-  showEntries();
+  showView('entries');
 });
 
 $newEntryButton.addEventListener('click', function() {
-  showForm();
+  showView('entry-view');
 })
 
 window.addEventListener('DOMContentLoaded', function(event){
   if(data.entries === undefined){
     wipe();
   }
-  updateEntryView();
-  if(data.entries.length > 0) {
-    showEntries();
-  }
-  else {
-    showForm();
-    
-  }
+  showView(data.view);
 });
