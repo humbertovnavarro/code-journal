@@ -1,23 +1,23 @@
-body {
+body { 
   background-color: #f0f0f0;
-  font-weight: 600;
   font-family: sans-serif;
+}
+
+header {
+  background-color: #562b81;
+  height: 5rem;
 }
 
 h1 {
   font-family: 'Proza Libre', sans-serif;
 }
+
 a {
   font-size: 0.6rem;
   padding-left: 1rem;
 }
 
 ul{
-  margin: 0px;
-  padding: 0px;
-}
-
-li h1 {
   margin: 0px;
   padding: 0px;
 }
@@ -29,13 +29,6 @@ p {
   overflow: scroll;
   overflow-y: auto;
   overflow-x: auto;
-}
-
-.textbox {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  height: 2rem;
 }
 
 form {
@@ -92,6 +85,28 @@ textarea {
   transition: box-shadow 0.3s; 
 }
 
+li h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
+header h1 {
+  font-weight: normal;
+  font-size: 2em;
+  font-family: 'Proza Libre', sans-serif;
+  color: white;
+}
+
+form h1 {
+  padding-bottom: 10px;
+}
+
+.textbox {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 2rem;
+}
 
 .image-container {
   border-radius: 6px;
@@ -112,38 +127,15 @@ textarea {
   margin: 0;
 }
 
-header {
-  background-color: #562b81;
-  height: 5rem;
-}
-
 .header-container {
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
 }
 
-header h1 {
-  font-weight: normal;
-  font-size: 2em;
-  font-family: 'Proza Libre', sans-serif;
-  color: white;
-}
-
-form h1 {
-  padding-bottom: 10px;
-}
-
 .container {
   margin: 0;
   padding: 20px;
-}
-
-body { 
-  margin-top: 0;
-  width: 100%;
-  height: 100%;
-  font-family: sans-serif;
 }
 
 .container {
@@ -162,6 +154,7 @@ body {
 .align-center {
   align-items: center;
 }
+
 .align-baseline {
   align-items: baseline;
 }
