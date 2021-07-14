@@ -20,11 +20,14 @@
 <body>
   <header>
     <div class="container header-container">
-      <h1>Code Journal</h1>
+      <div class="row align-center">
+        <h1>Code Journal</h1>
+        <a class="entries-tab"><h1>Entries</h1></a>
+      </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
+    <div data-view="entry-form" class="entry-form hidden">
       <div class="container">
         <div class="column-full">
           <form>
@@ -35,19 +38,19 @@
             </div>
             <div class="row">
               <div class="column-half">
-                <div class="form-image-container">
+                <div class="image-container">
                   <img src="images/placeholder-image-square.jpg" alt="Entry Image" class="form-image">
                 </div>
               </div>
               <div class="column-half">
                 <div><label for="entry-title">Title</label></div>
                 <input name="title" id="entry-title">
-                <div><label for="photo-url">Photo URL</label></div>
+                <div><label for="entry-url">Photo URL</label></div>
                 <input name="url" id="entry-url">
               </div>
             </div>
             <div class="row">
-              <div class="column-full">
+              <div class="column-full margin-top-2rem">
                 <div><label for="entry-notes">Notes</label></div>
                 <textarea name="notes" id="entry-notes" cols="30" rows="10"></textarea>
               </div>
@@ -58,6 +61,30 @@
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <div data-view="entries" class="entries hidden">
+      <div class="container header-container">
+        <div class="row">
+          <div class="column-half">
+            <h1>Entries</h1>
+          </div>
+          <div class="column-half">
+            <div class="row justify-end">
+              <div class="col-half">
+                <button class="new-entry-button">NEW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <ul class="entry-list">
+            </ul>
+          </div>
         </div>
       </div>
     </div>
