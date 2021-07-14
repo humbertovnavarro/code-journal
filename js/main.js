@@ -10,16 +10,23 @@ var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 
 window.addEventListener('DOMContentLoaded', function(event){
+  if(data.entries === undefined){
+    wipe();
+  }
   updateEntryView();
   if(data.entries.length > 0) {
     showEntries();
   }
   else {
     showForm();
+    
   }
 });
 
 function updateEntryView() {
+  if(data.entries.length <= 0) {  
+    return;
+  }
   $entryList.innerHTML = '';
   for(var i = 0; i < data.entries.length; i++) {
     $entryList.appendChild(createEntry(data.entries[i]));
@@ -85,6 +92,7 @@ function showEntries() {
   $entryForm.className = 'entry-form hidden';
   $entries.className = 'entries';
 }
+
 function showForm() {
   $entryForm.className = 'entry-form';
   $entries.className = 'entries hidden';

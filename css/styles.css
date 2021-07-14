@@ -1,9 +1,12 @@
 body {
-  font-family: 'Proza Libre', sans-serif;
   background-color: #f0f0f0;
   font-weight: 600;
+  font-family: sans-serif;
 }
 
+h1 {
+  font-family: 'Proza Libre', sans-serif;
+}
 a {
   font-size: 0.6rem;
   padding-left: 1rem;
@@ -17,6 +20,15 @@ ul{
 li h1 {
   margin: 0px;
   padding: 0px;
+}
+
+p {
+  font-weight: normal;
+  line-height: 1.5;
+  max-height: 14rem;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .textbox {
@@ -36,14 +48,12 @@ button {
   transition: background-color 0.1s;
   border: 0px;
   color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  width: 3rem;
+  height: 2rem;
   border-radius: 5px;
-  margin-top: 1rem;
   box-shadow: 2px 2px 2px #240047;
 }
+
 button:hover {
   background-color: #5e3983;
 }
@@ -52,12 +62,6 @@ button:active {
   background-color: rgb(138, 38, 138);
   box-shadow: 1px 1px 1px #240047;
   transform: translateY(1px);
-}
-
-p {
-  font-weight: normal;
-  line-height: 1.5;
-  font-size: large;
 }
 
 input {
@@ -84,6 +88,7 @@ textarea {
   margin-top: 1.5rem;
   width: 100%;
   resize: none;
+  margin-bottom: 1rem;
   transition: box-shadow 0.3s; 
 }
 
@@ -163,6 +168,10 @@ body {
 
 .text-right {
   text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
