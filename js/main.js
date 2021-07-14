@@ -32,6 +32,10 @@ function handleEntryClick(event) {
       data.editing = data.entries[i];
     }
   }
+  $form.title.value = data.editing.title;
+  $form.notes.value = data.editing.notes;
+  $form.url.value = data.editing.url; 
+  $formImage.src = data.editing.url;
   showView('entry-form');
 }
 
