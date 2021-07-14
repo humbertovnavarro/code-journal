@@ -115,7 +115,7 @@ $entriesTab.addEventListener('click',function(event) {
 });
 
 $newEntryButton.addEventListener('click', function() {
-  showView('entry-view');
+  showView('entry-form');
 })
 
 window.addEventListener('DOMContentLoaded', function(event){
