@@ -53,6 +53,7 @@ function createEntry(entry) {
   var $heading = document.createElement('h1');
   var $flexDiv = document.createElement('div');
   var $editIcon = document.createElement('img');
+  $editIcon.setAttribute('data-entry-id',entry.entryID);
   $editIcon.className = 'icon';
   $editIcon.src = 'https://img.icons8.com/material-outlined/24/000000/edit--v1.png';
   $flexDiv.className = "row space-between";
@@ -125,7 +126,7 @@ $newEntryButton.addEventListener('click', function() {
   showView('entry-form');
 })
 
-$entries.addEventListener('click', handleEntryClick );
+$entries.addEventListener('click',handleEntryClick);
 
 window.addEventListener('DOMContentLoaded', function(event){
   if(data.entries === undefined){
