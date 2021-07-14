@@ -126,6 +126,11 @@ form h1 {
   border-radius: 5px;
 }
 
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
 .form-image {
   box-shadow: 0;
 }
@@ -151,6 +156,10 @@ form h1 {
   margin-right: auto;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -174,6 +183,7 @@ form h1 {
 .text-center {
   text-align: center;
 }
+
 .margin-top-2rem {
   margin-top: 2rem;
 }
@@ -189,5 +199,9 @@ form h1 {
   }
   a {
     padding-left: 20px;
+  }
+
+  .mobile-margin {
+    margin-top: 2rem;
   }
 }
