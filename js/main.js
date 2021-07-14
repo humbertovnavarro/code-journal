@@ -9,20 +9,6 @@ var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 
-window.addEventListener('DOMContentLoaded', function(event){
-  if(data.entries === undefined){
-    wipe();
-  }
-  updateEntryView();
-  if(data.entries.length > 0) {
-    showEntries();
-  }
-  else {
-    showForm();
-    
-  }
-});
-
 function updateEntryView() {
   if(data.entries.length <= 0) {  
     return;
@@ -120,3 +106,17 @@ $entriesTab.addEventListener('click',function(event) {
 $newEntryButton.addEventListener('click', function() {
   showForm();
 })
+
+window.addEventListener('DOMContentLoaded', function(event){
+  if(data.entries === undefined){
+    wipe();
+  }
+  updateEntryView();
+  if(data.entries.length > 0) {
+    showEntries();
+  }
+  else {
+    showForm();
+    
+  }
+});
