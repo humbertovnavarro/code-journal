@@ -105,9 +105,6 @@ form h1 {
   padding-bottom: 10px;
 }
 
-.entry-list h1 {
-
-}
 .textbox {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -158,6 +155,7 @@ form h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
 .space-between {
   justify-content: space-between;
 }
@@ -185,6 +183,7 @@ form h1 {
 .text-center {
   text-align: center;
 }
+
 .margin-top-2rem {
   margin-top: 2rem;
 }
