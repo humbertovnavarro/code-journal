@@ -58,12 +58,56 @@ function handleFormSubmit(event) {
     data.nextEntryId++;
     data.entries.push(entry);
   }
+  resetForm();
+  updateEntryView();
+  showView('entries');
+}
+
+function resetForm() {
   $form.title.value = '';
   $form.url.value = '';
   $form.notes.value = '';
   $formImage.src = 'images/placeholder-image-square.jpg';
-  updateEntryView();
-  showView('entries');
+}
+
+function showModal(event) {
+  var $modal = document.createElement('div');
+  $modal.className = "modal";
+  var $modalContainer = document.createElement('div');
+  $modalContainer.className = "modal-container";
+  var $sure = document.createElement('p');
+  $sure.textContent = "Are you sure you want to delete this entry?";
+  $sure.className = "text-center padding-3rem";
+  var $delete = document.createElement('button');
+  $delete.className = "delete-button"
+  $delete.textContent = "CONFIRM";
+  var $cancel = document.createElement('button');
+  $cancel.className = "cancel-button"
+  $cancel.textContent = "CANCEL";
+  var $rowOne = document.createElement('div');
+  $rowOne.className = "row justify-center align-center margin-2rem";
+  var $rowTwo = document.createElement('div');
+  $rowTwo.className = "row row-reverse align-center space-between margin-2rem";
+  $modal.appendChild($modalContainer);
+  $rowOne.appendChild($sure);
+  $rowTwo.appendChild($cancel);
+  $rowTwo.appendChild($delete);
+  $modalContainer.appendChild($rowOne);
+  $modalContainer.appendChild($rowTwo);
+  document.body.appendChild($modal);
+  $rowTwo.appendChild($delete);
+  $rowTwo.appendChild($cancel);
+  $modal.addEventListener('click', function(event) {
+    if(event.target.className === 'delete-button') {
+      data.entries.splice(data.editing, 1);
+      showView('entries');
+      updateEntryView();
+      document.body.removeChild($modal);
+    }
+    if(event.target.className === 'cancel-button') {
+      document.body.removeChild($modal);
+    }
+  })
 }
 
 function createEntry(entry) {
@@ -149,20 +193,25 @@ $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
 
 $entriesTab.addEventListener('click', function (event) {
-  //data.editing = null;
   showView('entries');
 });
 
 $newEntryButton.addEventListener('click', function () {
-  //data.editing = null;
+  data.editing = null;
+  resetForm();
   showView('entry-form');
 })
+
+$deleteTarget.addEventListener('click',showModal);
 
 $entries.addEventListener('click', handleEntryClick);
 
 window.addEventListener('DOMContentLoaded', function (event) {
-  if (data.entries === undefined) {
+  if (data.entries === null) {
     wipe();
+  }
+  if(data.editing !== null) {
+    data.editing = null;
   }
   updateEntryView();
   showView(data.view);
