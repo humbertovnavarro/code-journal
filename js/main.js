@@ -9,6 +9,7 @@ var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 var $deleteTarget = document.querySelector('.delete-target');
+var $searchQuery = document.querySelector('#search-query');
 function checkURL(url) {
   if (!url.startsWith('https://')) {
     return false;
@@ -187,7 +188,7 @@ function wipe() {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('entries', dataJSON);
 }
-
+$searchQuery.addEventListener('change', updateEntryView($searchQuery.value));
 $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
 
@@ -199,7 +200,7 @@ $newEntryButton.addEventListener('click', function () {
   data.editing = null;
   resetForm();
   showView('entry-form');
-})
+});
 
 $deleteTarget.addEventListener('click', showModal);
 
