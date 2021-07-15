@@ -71,9 +71,36 @@
     </div>
     <div data-view="entries" class="entries hidden">
       <div class="container header-container">
-        <div class="row">
+        <form class="filter-bar">
+          <div class="row">
+            <div class="column-full">
+              <div class="row">
+                <div class="filter-box">
+                  <div class="row">
+                    <div class="column-full">
+                      <label for="search-date">Date</label>
+                      <input name="date" type="date" id="search-date">
+                      <label for="search-query">Search</label>
+                      <input name="query" id="search-query">
+                    </div>
+                    <div class="column-full">
+                      <div class="row justify-end margin-top-2rem">
+                        <button>RESET</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row padding-right-27px">
           <div class="column-half">
-            <h1>Entries</h1>
+            <div class="row">
+              <div class="column-half">
+                <h1>Entries</h1>
+              </div>
+            </div>
           </div>
           <div class="column-half">
             <div class="row justify-end">

@@ -184,6 +184,11 @@ form h1 {
 .icon {
   width: 2rem;
   height: 2rem;
+  transition: transform 0.5s;
+}
+
+.icon:hover {
+  transform: scale(120%);
 }
 
 .form-image {
@@ -206,6 +211,23 @@ form h1 {
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+}
+
+.filter-box {
+  font-family: 'Proza Libre', sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(233, 233, 233);
+  border: 1px solid rgb(119, 119, 119);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.filter-box input {
+  padding: 0.5rem;
+  margin: 0;
 }
 
 .space-between {
@@ -240,6 +262,10 @@ form h1 {
   text-align: center;
 }
 
+.padding-right-27px {
+  padding-right: 27px;
+}
+
 .margin-top-2rem {
   margin-top: 2rem;
 }
@@ -269,5 +295,22 @@ form h1 {
 
   .modal-container {
     margin-top: 50%;
+  }
+
+  .mobile-center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  button {
+    width: 6rem;
+    height: 3rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #240047;
+  }
+
+  .padding-right-27px {
+    padding-right: 17px;
   }
 }

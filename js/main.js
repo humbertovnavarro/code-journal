@@ -9,6 +9,8 @@ var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 var $deleteTarget = document.querySelector('.delete-target');
+var $searchQuery = document.querySelector('#search-query');
+var $filterBar = document.querySelector('.filter-bar');
 function checkURL(url) {
   if (!url.startsWith('https://')) {
     return false;
@@ -62,6 +64,13 @@ function handleFormSubmit(event) {
   showView('entries');
 }
 
+function handleFilterSubmit(event) {
+  event.preventDefault();
+  $filterBar.query.value = '';
+  $filterBar.date.value = '';
+  updateEntryView();
+}
+
 function resetForm() {
   $form.title.value = '';
   $form.url.value = '';
@@ -78,10 +87,10 @@ function showModal(event) {
   $sure.textContent = 'Are you sure you want to delete this entry?';
   $sure.className = 'text-center padding-3rem';
   var $delete = document.createElement('button');
-  $delete.className = 'delete-button'
+  $delete.className = 'delete-button';
   $delete.textContent = 'CONFIRM';
   var $cancel = document.createElement('button');
-  $cancel.className = 'cancel-button'
+  $cancel.className = 'cancel-button';
   $cancel.textContent = 'CANCEL';
   var $rowOne = document.createElement('div');
   $rowOne.className = 'row justify-center align-center margin-2rem';
@@ -141,19 +150,39 @@ function createEntry(entry) {
   return $entry;
 }
 
-function updateEntryView() {
+function updateEntryView(query = '') {
   $entryList.innerHTML = '';
-  for (var i = 0; i < data.entries.length; i++) {
-    $entryList.appendChild(createEntry(data.entries[i]));
+  var entries = data.entries;
+  if (query !== '') {
+    entries = getSearchResults(query);
   }
-  if (data.entries <= 0) {
+  for (var i = 0; i < entries.length; i++) {
+    $entryList.appendChild(createEntry(entries[i]));
+  }
+  if (entries.length <= 0) {
     var $error = document.createElement('div');
     var $errorMessage = document.createElement('p');
     $errorMessage.className = 'text-center';
-    $errorMessage.textContent = 'No entries have been recorded.';
+    if (query !== '') {
+      $errorMessage.textContent = 'No results!';
+    } else {
+      $errorMessage.textContent = 'No entries have been recorded.';
+    }
     $error.appendChild($errorMessage);
     $entryList.appendChild($error);
   }
+}
+
+function getSearchResults(searchQuery) {
+  var result = [];
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].notes.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1) {
+      result.push(data.entries[i]);
+    } else if (data.entries[i].title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1) {
+      result.push(data.entries[i]);
+    }
+  }
+  return result;
 }
 
 function showView(view) {
@@ -169,8 +198,7 @@ function showView(view) {
       $entries.className = 'entries hidden';
       if (data.editing === null) {
         $deleteTarget.className = 'delete-target hidden';
-      }
-      else {
+      } else {
         $deleteTarget.className = 'delete-target';
       }
       return 'entry-form';
@@ -188,23 +216,22 @@ function wipe() {
   localStorage.setItem('entries', dataJSON);
 }
 
+$searchQuery.addEventListener('input', function (event) {
+  updateEntryView($searchQuery.value);
+});
+$filterBar.addEventListener('submit', handleFilterSubmit);
 $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
-
 $entriesTab.addEventListener('click', function (event) {
   showView('entries');
 });
-
 $newEntryButton.addEventListener('click', function () {
   data.editing = null;
   resetForm();
   showView('entry-form');
-})
-
+});
 $deleteTarget.addEventListener('click', showModal);
-
 $entries.addEventListener('click', handleEntryClick);
-
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.entries === null) {
     wipe();
