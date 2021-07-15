@@ -6,11 +6,11 @@ var data = {
   nextEntryId: 1
 };
 
-if(localStorage.getItem('entries') !== null) {
+if (localStorage.getItem('entries') !== null) {
   data = JSON.parse(localStorage.getItem('entries'));
 }
 
-window.addEventListener('beforeunload', function(event){
+window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
-  localStorage.setItem('entries',dataJSON);
+  localStorage.setItem('entries', dataJSON);
 });
