@@ -78,8 +78,28 @@
                 <div class="filter-box">
                   <div class="row">
                     <div class="column-full">
-                      <label for="search-date">Date</label>
-                      <input name="date" type="date" id="search-date">
+                      <div class="row align-center">
+                        <div class="column-two-thirds">
+                          <label for="search-date">Date</label>
+                          <input name="date" type="date" id="search-date">
+                        </div>
+                        <div class="column-third">
+                          <div class="row text-center">
+                            <div class="column-third">
+                              <label for="before">Before</label>
+                              <input type="radio" name="before" id="before" value="before">
+                            </div>
+                            <div class="column-third">
+                              <label for="after">After</label>
+                              <input type="radio" name="before" id="after" value="after">
+                            </div>
+                            <div class="column-third">
+                              <label for="on">On</label>
+                              <input type="radio" name="before" id="on" value="on" checked>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <label for="search-query">Search</label>
                       <input name="query" id="search-query">
                     </div>

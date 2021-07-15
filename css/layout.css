@@ -17,6 +17,14 @@
   flex-wrap: wrap;
 }
 
+.column-third {
+  width: calc(100% / 3);
+}
+
+.column-two-thirds {
+  width: calc(200% / 3);
+}
+
 .column-full,
 .column-half {
   width: 100%;

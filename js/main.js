@@ -52,9 +52,11 @@ function handleFormSubmit(event) {
   };
   if (data.editing != null) {
     entry.entryID = data.entries[data.editing].entryID;
+    entry.time = data.entries[data.editing].time;
     data.entries[data.editing] = entry;
     data.editing = null;
   } else {
+    entry.time = Date.now();
     entry.entryID = data.nextEntryId;
     data.nextEntryId++;
     data.entries.push(entry);
