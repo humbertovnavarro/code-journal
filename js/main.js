@@ -139,6 +139,10 @@ function createEntry(entry) {
   $editIcon.src = 'https://img.icons8.com/material-outlined/24/000000/edit--v1.png';
   $flexDiv.className = 'row space-between';
   $heading.textContent = entry.title;
+  var $timeStamp = document.createElement('p');
+  $timeStamp.className = 'timestamp';
+  var myDate = new Date(entry.time);
+  $timeStamp.textContent = myDate.toLocaleDateString() + ' ' + myDate.toLocaleTimeString();
   var $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
   $entryImageContainer.appendChild($entryImage);
@@ -147,6 +151,7 @@ function createEntry(entry) {
   $flexDiv.appendChild($editIcon);
   $textColumn.appendChild($flexDiv);
   $textColumn.appendChild($paragraph);
+  $imageColumn.appendChild($timeStamp);
   $entry.appendChild($imageColumn);
   $entry.appendChild($textColumn);
   return $entry;
@@ -236,9 +241,11 @@ function wipe() {
   localStorage.setItem('entries', dataJSON);
 }
 $filterBar.date.addEventListener('input', function (event) {
+  console.log('Changed date');
   search();
 });
 $filterBar.query.addEventListener('input', function (event) {
+  console.log('Changed search');
   search();
 });
 $filterBar.addEventListener('submit', handleFilterSubmit);

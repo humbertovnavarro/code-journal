@@ -167,6 +167,12 @@ form h1 {
   height: 2rem;
 }
 
+.timestamp {
+  font-style: italic;
+  color: grey;
+  font-weight: bolder;
+}
+
 .image-container {
   border-radius: 6px;
   width: 100%;
