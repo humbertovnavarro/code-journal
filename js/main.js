@@ -152,7 +152,7 @@ function createEntry(entry) {
   return $entry;
 }
 
-function updateEntryView(query = '') {
+function updateEntryView(query = '', date = null, before = null) {
   $entryList.innerHTML = '';
   var entries = data.entries;
   if (query !== '') {
