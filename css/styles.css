@@ -262,6 +262,10 @@ form h1 {
   text-align: center;
 }
 
+.padding-right-27px {
+  padding-right: 27px;
+}
+
 .margin-top-2rem {
   margin-top: 2rem;
 }
@@ -304,5 +308,9 @@ form h1 {
     height: 3rem;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #240047;
+  }
+
+  .padding-right-27px {
+    padding-right: 17px;
   }
 }
