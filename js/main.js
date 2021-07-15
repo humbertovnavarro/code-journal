@@ -188,6 +188,7 @@ function wipe() {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('entries', dataJSON);
 }
+
 $searchQuery.addEventListener('change', updateEntryView($searchQuery.value));
 $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
