@@ -9,7 +9,6 @@ var $newEntryButton = document.querySelector('.new-entry-button');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 var $deleteTarget = document.querySelector('.delete-target');
-var $searchQuery = document.querySelector('#search-query');
 var $filterBar = document.querySelector('.filter-bar');
 function checkURL(url) {
   if (!url.startsWith('https://')) {
@@ -66,6 +65,7 @@ function handleFormSubmit(event) {
   showView('entries');
 }
 
+// Reset the filter bar / form
 function handleFilterSubmit(event) {
   event.preventDefault();
   $filterBar.query.value = '';
@@ -153,7 +153,7 @@ function createEntry(entry) {
 }
 
 function search() {
-  var query = $searchQuery.value;
+  var query = $filterBar.query.value;
   var date = $filterBar.date.value;
   var before = null;
   switch (before) {
@@ -235,9 +235,11 @@ function wipe() {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('entries', dataJSON);
 }
-
-$searchQuery.addEventListener('input', function (event) {
-  updateEntryView($searchQuery.value);
+$filterBar.date.addEventListener('input', function (event) {
+  search();
+});
+$filterBar.query.addEventListener('input', function (event) {
+  search();
 });
 $filterBar.addEventListener('submit', handleFilterSubmit);
 $photoUrl.addEventListener('input', handleURLChange);
