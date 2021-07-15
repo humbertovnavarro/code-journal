@@ -152,6 +152,24 @@ function createEntry(entry) {
   return $entry;
 }
 
+function search() {
+  var query = $searchQuery.value;
+  var date = $filterBar.date.value;
+  var before = null;
+  switch (before) {
+    case 'after':
+      before = false;
+      break;
+    case 'before':
+      before = true;
+      break;
+    case 'on':
+      before = null;
+      break;
+  }
+  updateEntryView(query, date, before);
+}
+
 function updateEntryView(query = '', date = null, before = null) {
   $entryList.innerHTML = '';
   var entries = data.entries;
