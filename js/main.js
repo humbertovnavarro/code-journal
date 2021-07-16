@@ -284,6 +284,7 @@ $newEntryButton.addEventListener('click', function () {
 $deleteTarget.addEventListener('click', showModal);
 $entries.addEventListener('click', handleEntryClick);
 window.addEventListener('DOMContentLoaded', function (event) {
+  $filterBar.date.value = new Date(Date.now()).toLocaleDateString('en-CA');
   if (data.entries === null) {
     wipe();
   }
