@@ -72,6 +72,11 @@ function handleFilterSubmit(event) {
   $filterBar.date.value = '';
   updateEntryView();
 }
+function handleFilterClick(event) {
+  if (event.target.getAttribute('name') === 'before') {
+    search();
+  }
+}
 
 function resetForm() {
   $form.title.value = '';
@@ -159,8 +164,12 @@ function createEntry(entry) {
 
 function search() {
   var query = $filterBar.query.value;
-  var date = $filterBar.date.value;
+  var date = null;
+  if ($filterBar.date.value !== '') {
+    date = new Date(Date.parse($filterBar.date.value));
+  }
   var before = null;
+  before = $filterBar.before.value;
   switch (before) {
     case 'after':
       before = false;
@@ -168,18 +177,18 @@ function search() {
     case 'before':
       before = true;
       break;
-    case 'on':
-      before = null;
-      break;
   }
   updateEntryView(query, date, before);
 }
 
-function updateEntryView(query = '', date = null, before = null) {
+function updateEntryView(query = '', date = null, before) {
   $entryList.innerHTML = '';
   var entries = data.entries;
   if (query !== '') {
     entries = getSearchResults(query);
+  }
+  if (date && before !== null && before !== undefined) {
+    entries = getBeforeOrAfter(date, entries, before);
   }
   for (var i = 0; i < entries.length; i++) {
     $entryList.appendChild(createEntry(entries[i]));
@@ -196,6 +205,20 @@ function updateEntryView(query = '', date = null, before = null) {
     $error.appendChild($errorMessage);
     $entryList.appendChild($error);
   }
+}
+
+function getBeforeOrAfter(date, entries, before) {
+  var result = [];
+  var timestamp = date.getTime();
+  for (var i = 0; i < entries.length; i++) {
+    if (!before && entries[i].time > timestamp) {
+      result.push(entries[i]);
+    }
+    if (before && entries[i].time < timestamp) {
+      result.push(entries[i]);
+    }
+  }
+  return result;
 }
 
 function getSearchResults(searchQuery) {
@@ -241,14 +264,13 @@ function wipe() {
   localStorage.setItem('entries', dataJSON);
 }
 $filterBar.date.addEventListener('input', function (event) {
-  console.log('Changed date');
   search();
 });
 $filterBar.query.addEventListener('input', function (event) {
-  console.log('Changed search');
   search();
 });
 $filterBar.addEventListener('submit', handleFilterSubmit);
+$filterBar.addEventListener('click', handleFilterClick);
 $photoUrl.addEventListener('input', handleURLChange);
 $form.addEventListener('submit', handleFormSubmit);
 $entriesTab.addEventListener('click', function (event) {
